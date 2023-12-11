@@ -9,6 +9,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/collection")
 public class CollectionController {
-
-    public void listCollection(@RequestBody )
 }

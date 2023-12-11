@@ -8,4 +8,5 @@ import lombok.Data;
 public class Collection {
 
     private String cards;
+    private int number;
 }

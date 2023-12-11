@@ -6,6 +6,7 @@
 	<modules>
 		<module>collection</module>
         <module>shared_objects</module>
+        <module>user</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
