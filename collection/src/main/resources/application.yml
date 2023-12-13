@@ -4,3 +4,15 @@ server:
 spring:
   application:
     name: collection
+
+  datasource:
+    username: pg3402
+    url: jdbc:postgresql://localhost:5432/collection
+    password: pass
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true

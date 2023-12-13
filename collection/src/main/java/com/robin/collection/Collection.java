@@ -1,4 +1,4 @@
-package com.robin.user;
+package com.robin.collection;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,17 +11,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User {
-
+public class Collection {
     @Id
     @SequenceGenerator(
-            name = "user_id_sequence",
-            sequenceName = "user_id_sequence"
+            name = "collection_id_sequence",
+            sequenceName = "collection_id_sequence"
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "user_id_sequence"
+            generator = "collection_id_sequence"
     )
-    private int id;
-    private String username;
+    private Integer id;
+    private Integer userId;
+    private String card;
+    private int cardQuantity;
+
 }

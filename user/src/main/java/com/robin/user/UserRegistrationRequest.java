@@ -1,5 +1,4 @@
 package com.robin.user;
 
-public record UserRegistrationRequest(String username) {
-
+public record UserRegistrationRequest(String username, String password) {
 }

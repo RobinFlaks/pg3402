@@ -7,6 +7,8 @@
 		<module>collection</module>
         <module>shared_objects</module>
         <module>user</module>
+		<module>buy</module>
+        <module>cheater</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
