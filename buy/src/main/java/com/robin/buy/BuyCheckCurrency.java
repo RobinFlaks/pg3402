@@ -1,28 +1,38 @@
 package com.robin.buy;
 
-import com.robin.user.Users;
+import com.robin.users.Users;
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.stereotype.Service;
 
-@Data
-@Builder
 @AllArgsConstructor
-@NoArgsConstructor
+@Service
+@Slf4j
+@EntityScan(basePackageClasses = Users.class)
+@Transactional
 public class BuyCheckCurrency {
 
     private EntityManager entityManager;
 
-    public void buyPack(int id){
+    public boolean buyPack(int id){
         Users user = entityManager.find(Users.class, id);
-
+        System.out.println("user id in int: " + id + ". user id in user: " + user.getId());
         if(user != null){
-            user.setCurrency(user.getCurrency() - 10);
-            entityManager.merge(user);
+            if (user.getCurrency()>=10) {
+                user.setCurrency(user.getCurrency() - 10);
+                entityManager.merge(user);
+                log.info("user {} bought a new pack", user.getUsername());
+                return true;
+            } else {
+                log.info("user {} couldn't buy a new pack due to insufficient funds", user.getUsername());
+                return false;
+            }
         } else{
-            
+            log.info("user was null when trying to buy a pack");
+            return false;
         }
     }
 }

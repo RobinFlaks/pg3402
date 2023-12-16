@@ -3,11 +3,11 @@ server:
 
 spring:
   application:
-    name: user
+    name: users
 
   datasource:
     username: pg3402
-    url: jdbc:postgresql://localhost:5432/user 
+    url: jdbc:postgresql://localhost:5432/users
     password: pass
   jpa:
     hibernate:
@@ -16,3 +16,7 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

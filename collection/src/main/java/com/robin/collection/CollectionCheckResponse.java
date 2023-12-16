@@ -1,4 +1,4 @@
 package com.robin.collection;
 
-public record CollectionCheckResponse(String[] collection) {
+public record CollectionCheckResponse(boolean added) {
 }

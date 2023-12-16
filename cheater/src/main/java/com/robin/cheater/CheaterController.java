@@ -10,7 +10,7 @@ public class CheaterController {
 
     private final CheaterCheckService cheaterCheckService;
 
-    @GetMapping
+    @GetMapping(path = "{userId}")
     public CheaterCheckResponse isCheating(@PathVariable("userId") Integer userId){
         boolean cheating = cheaterCheckService.cheatingUser(userId);
 

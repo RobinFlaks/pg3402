@@ -1,12 +1,12 @@
 server:
-  port: 8082
+  port: 8083
 spring:
   application:
     name: buy
 
   datasource:
     username: pg3402
-    url: jdbc:postgresql://localhost:5432/user
+    url: jdbc:postgresql://localhost:5432/users
     password: pass
   jpa:
     hibernate:

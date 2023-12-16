@@ -1,0 +1,23 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: zuul-server
+
+
+    zuul:
+    #Service will be mapped under the /api URI
+      routes:
+        service1:
+          service-id: id4
+          path: /eureka/**
+          url: http://localhost:8761
+          strip-prefix: false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
