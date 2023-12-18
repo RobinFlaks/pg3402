@@ -3,18 +3,21 @@ server:
 
 spring:
   application:
-    name: zuul-server
+    name: gateway
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      routes:
+        - id: buy-route
+          uri: lb://BUY
+          predicates:
+            - Path=/buy/**
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-zuul:
-  routes:
-    buy:
-      path: /buy/**
-      service-id: buy
-
 management:
   endpoints:
     web:

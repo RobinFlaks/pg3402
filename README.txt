@@ -1,6 +1,7 @@
 things needed to start the project:
 
 mvn installed on the computer
+rabbitMQ installed(erlang needs to be installed for rabbitMQ to be installed)
 to get the database up and running:
 - docker (docker desktop) installed
 - make sure docker engine is running
@@ -11,7 +12,12 @@ to get the database up and running:
 - under the connection tab name the host name/address "postgres"
 - in the same tab make the username "pg3402" and password "pass", then click save
 - under the servers tab on the left right-click "Databases" and create a new database "users"
-- do the same to make a database "cheaters"
+- do the same to make a database "cheaters", and a database "collection"
+
+
+this project was build on java 17 azul.
+download consul amd64 and have consul running on port 8500
+
 
 
 in a real environment I would create a postgres service for each microservice in the docker-compose.yml, but due to limited space I have chosen for all the microservices to use the same postgres service.

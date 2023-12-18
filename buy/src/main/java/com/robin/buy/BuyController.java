@@ -2,6 +2,8 @@ package com.robin.buy;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 public class BuyController {
 
     private final BuyCheckCurrency buyCheckCurrency;
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     @GetMapping(path = "{userId}")
     public BuyCheckResponse isCheating(@PathVariable("userId") Integer userId){
@@ -19,6 +23,8 @@ public class BuyController {
 
         if(buyCheckCurrency.buyPack(userId)){
             bought = true;
+            amqpTemplate.convertAndSend("directExchange", "routingKey", userId.toString());
+            System.out.println("tried to send message to collection");
             //todo send request to collection to add 5 random cards to users collection
         } else{
             bought = false;
