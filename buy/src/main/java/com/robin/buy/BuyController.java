@@ -25,7 +25,6 @@ public class BuyController {
             bought = true;
             amqpTemplate.convertAndSend("directExchange", "routingKey", userId.toString());
             System.out.println("tried to send message to collection");
-            //todo send request to collection to add 5 random cards to users collection
         } else{
             bought = false;
         }
