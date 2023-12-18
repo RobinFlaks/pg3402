@@ -14,10 +14,11 @@ to get the database up and running:
 - under the servers tab on the left right-click "Databases" and create a new database "users"
 - do the same to make a database "cheaters", and a database "collection"
 
+to start the project:
+- first start the eureka-server
+- then any other service can be started, user relies on synchronous communication with cheater so both needs to be running to test user
+
 
 this project was build on java 17 azul.
-download consul amd64 and have consul running on port 8500
-
-
 
 in a real environment I would create a postgres service for each microservice in the docker-compose.yml, but due to limited space I have chosen for all the microservices to use the same postgres service.

@@ -9,7 +9,6 @@
 		<module>buy</module>
         <module>cheater</module>
 		<module>eureka-server</module>
-        <module>zuul</module>
         <module>gateway</module>
     </modules>
 	<parent>
@@ -32,10 +31,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
